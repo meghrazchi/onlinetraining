@@ -11,9 +11,11 @@ import { TagModule } from './tag/tag.module';
 import { CategoryModule } from './category/category.module';
 import { PaymentModule } from './payment/payment.module';
 import { MulterModule } from '@nestjs/platform-express';
+import { MongooseModule } from "@nestjs/mongoose";
 
 @Module({
   imports: [
+    MongooseModule.forRoot('mongodb://localhost:27017/onlinetraining'),
     MulterModule.registerAsync({
       useFactory: () => ({
         dest: './upload',
