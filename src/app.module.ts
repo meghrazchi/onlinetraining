@@ -8,9 +8,10 @@ import { CourseModule } from './course/course.module';
 import { PackageModule } from './package/package.module';
 import { InstructorModule } from './instructor/instructor.module';
 import { TagModule } from './tag/tag.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
-  imports: [UserModule, VideoModule, SectionModule, CourseModule, PackageModule, InstructorModule, TagModule],
+  imports: [UserModule, VideoModule, SectionModule, CourseModule, PackageModule, InstructorModule, TagModule, CategoryModule],
   controllers: [AppController],
   providers: [AppService],
 })
