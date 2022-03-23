@@ -10,9 +10,25 @@ import { InstructorModule } from './instructor/instructor.module';
 import { TagModule } from './tag/tag.module';
 import { CategoryModule } from './category/category.module';
 import { PaymentModule } from './payment/payment.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
-  imports: [UserModule, VideoModule, SectionModule, CourseModule, PackageModule, InstructorModule, TagModule, CategoryModule, PaymentModule],
+  imports: [
+    MulterModule.registerAsync({
+      useFactory: () => ({
+        dest: './upload',
+      }),
+    }),
+    UserModule,
+    VideoModule,
+    SectionModule,
+    CourseModule,
+    PackageModule,
+    InstructorModule,
+    TagModule,
+    CategoryModule,
+    PaymentModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
