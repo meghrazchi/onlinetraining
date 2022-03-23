@@ -5,9 +5,10 @@ import { UserModule } from './user/user.module';
 import { VideoModule } from './video/video.module';
 import { SectionModule } from './section/section.module';
 import { CourseModule } from './course/course.module';
+import { PackageModule } from './package/package.module';
 
 @Module({
-  imports: [UserModule, VideoModule, SectionModule, CourseModule],
+  imports: [UserModule, VideoModule, SectionModule, CourseModule, PackageModule],
   controllers: [AppController],
   providers: [AppService],
 })
