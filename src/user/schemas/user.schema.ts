@@ -1,17 +1,17 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type TagDocument = Tag & Document;
+export type UserDocument = User & Document;
 
 @Schema()
-export class Tag {
+export class User {
   @Prop({ required: true })
   first_name: string;
 
   @Prop({ required: true })
   last_name: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   email: string;
 
   @Prop()
@@ -33,16 +33,25 @@ export class Tag {
   last_login_date: Date;
 
   @Prop({ default: null })
-  activation_code: string;
+  email_activation_code: string;
 
   @Prop({ default: null })
-  refer_code: string;
+  email_activation_date: Date;
+
+  @Prop({ default: null })
+  mobile_activation_code: string;
+
+  @Prop({ default: null })
+  mobile_activation_date: Date;
+
+  @Prop({ default: null })
+  referral_code: string;
 
   @Prop({ default: null })
   referrer: string;
 
-  @Prop({ default: true })
+  @Prop({ default: false })
   block: boolean;
 }
 
-export const TagSchema = SchemaFactory.createForClass(Tag);
+export const UserSchema = SchemaFactory.createForClass(User);

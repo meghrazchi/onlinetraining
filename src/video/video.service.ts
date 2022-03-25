@@ -24,7 +24,6 @@ export class VideoService {
   }
 
   update(id: string, updateVideoDto: UpdateVideoDto) {
-    console.log(id)
     return this.videoModel.findByIdAndUpdate(id, updateVideoDto, {new: true}).exec()
   }
 

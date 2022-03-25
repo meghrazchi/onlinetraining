@@ -1,6 +1,7 @@
-export class CreateUserDto {
+export class AuthRegisterDto {
   first_name: string;
   last_name: string;
   email: string;
   password: string;
+  referrer: string;
 }

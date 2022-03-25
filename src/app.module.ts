@@ -12,6 +12,9 @@ import { CategoryModule } from './category/category.module';
 import { PaymentModule } from './payment/payment.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { MongooseModule } from "@nestjs/mongoose";
+import { MailModule } from './mail/mail.module';
+import { AuthModule } from "./auth/auth.module";
+import { ConfigModule } from "@nestjs/config";
 
 @Module({
   imports: [
@@ -21,7 +24,11 @@ import { MongooseModule } from "@nestjs/mongoose";
         dest: './upload',
       }),
     }),
+    ConfigModule.forRoot({
+      isGlobal: true, // no need to import into other modules
+    }),
     UserModule,
+    AuthModule,
     VideoModule,
     SectionModule,
     CourseModule,
@@ -29,7 +36,8 @@ import { MongooseModule } from "@nestjs/mongoose";
     InstructorModule,
     TagModule,
     CategoryModule,
-    PaymentModule
+    PaymentModule,
+    MailModule,
   ],
   controllers: [AppController],
   providers: [AppService],
