@@ -15,6 +15,7 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { MailModule } from './mail/mail.module';
 import { AuthModule } from "./auth/auth.module";
 import { ConfigModule } from "@nestjs/config";
+import { PathModule } from './path/path.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { ConfigModule } from "@nestjs/config";
     CategoryModule,
     PaymentModule,
     MailModule,
+    PathModule,
   ],
   controllers: [AppController],
   providers: [AppService],
